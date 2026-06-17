@@ -1,8 +1,0 @@
-SELECT 
-    c.collection_ref,
-    c.customerid,
-    cust.customername
-FROM collections c
-LEFT JOIN customers cust 
-    ON c.customerid = cust.customer_id
-WHERE c.collection_ref = '{{ appsmith.URL.queryParams.collection_ref }}';

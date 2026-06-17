@@ -1,3 +1,0 @@
-UPDATE assets
-SET apple_no = {{ AppleNoinput.text }}
-WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }};

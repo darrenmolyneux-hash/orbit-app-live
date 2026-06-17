@@ -1,3 +1,0 @@
-UPDATE assets
-SET status_id = {{Custom5.model.selectedStatusId}}
-WHERE asset_id = {{qry_GetAssetById.data[0]?.asset_id}};

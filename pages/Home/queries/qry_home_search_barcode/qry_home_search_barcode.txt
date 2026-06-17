@@ -1,4 +1,0 @@
-SELECT asset_id, asset_ref
-FROM assets
-WHERE asset_ref ILIKE {{inp_search_barcode.text}}
-LIMIT 1;

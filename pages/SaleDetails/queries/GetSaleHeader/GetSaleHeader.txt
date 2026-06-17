@@ -1,3 +1,0 @@
-SELECT *
-FROM sales
-WHERE sale_id = {{ appsmith.URL.queryParams.sale_id }};

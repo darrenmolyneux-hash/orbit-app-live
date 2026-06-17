@@ -1,9 +1,0 @@
-CREATE OR REPLACE FUNCTION generate_sale_ref()
-RETURNS TEXT AS $$
-DECLARE
-    next_id INTEGER;
-BEGIN
-    SELECT COALESCE(MAX(sale_id), 0) + 1 INTO next_id FROM sales;
-    RETURN 'SALE-INV-' || LPAD(next_id::text, 6, '0');
-END;
-$$ LANGUAGE plpgsql;

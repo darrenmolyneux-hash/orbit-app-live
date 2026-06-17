@@ -1,3 +1,0 @@
-UPDATE collections
-SET status = 'All Assets Booked'
-WHERE collection_id = {{appsmith.URL.queryParams.collectionId}};

@@ -1,3 +1,0 @@
-UPDATE assets
-SET {{ this.params.column }} = {{ this.params.value }}
-WHERE asset_id = {{ this.params.asset_id }};

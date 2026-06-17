@@ -1,3 +1,0 @@
-SELECT asset_id 
-FROM assets 
-WHERE asset_ref = {{ AssetRefSearch.text }};

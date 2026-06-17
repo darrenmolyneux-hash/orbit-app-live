@@ -1,1 +1,0 @@
-SELECT * FROM neon_auth."account" LIMIT 10;

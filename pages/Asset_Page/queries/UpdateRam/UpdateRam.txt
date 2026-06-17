@@ -1,3 +1,0 @@
-UPDATE assets
-SET ram = {{ RamInput.text }}
-WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }};

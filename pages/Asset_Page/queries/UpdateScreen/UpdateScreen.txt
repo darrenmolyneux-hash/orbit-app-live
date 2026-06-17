@@ -1,3 +1,0 @@
-UPDATE assets
-SET screen_size = {{ ScreenInput.text.text }}
-WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }};

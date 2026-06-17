@@ -1,6 +1,0 @@
-SELECT 
-  status_name AS label,
-  status_id AS value
-FROM status_types
-WHERE is_active = TRUE
-ORDER BY sort_order;

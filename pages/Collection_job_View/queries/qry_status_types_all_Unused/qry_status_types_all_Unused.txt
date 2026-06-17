@@ -1,3 +1,0 @@
-SELECT status_id AS value, status_name AS label
-FROM collection_status_types
-ORDER BY sort_order;

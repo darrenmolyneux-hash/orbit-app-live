@@ -1,5 +1,0 @@
-SELECT
-  collectionid,
-  collection_prefix AS collection_code
-FROM collections
-WHERE collectionid = {{ Number(appsmith.URL.queryParams.collectionid) }};

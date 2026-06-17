@@ -1,7 +1,0 @@
-UPDATE assets
-SET 
-    sold = true,
-    sold_date = NOW(),
-    sale_id = {{this.params.sale_id}},
-    status_id = 19
-WHERE asset_id = {{this.params.asset_id}};

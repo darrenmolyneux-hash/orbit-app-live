@@ -1,4 +1,0 @@
-
-UPDATE assets
-SET status_id = {{Custom5.model.selectedStatusId}}
-WHERE asset_id = {{appsmith.URL.queryParams.asset_id}}

@@ -1,4 +1,0 @@
-SELECT customer_id, customer_name
-FROM sale_customers
-WHERE active = true
-ORDER BY customer_name;

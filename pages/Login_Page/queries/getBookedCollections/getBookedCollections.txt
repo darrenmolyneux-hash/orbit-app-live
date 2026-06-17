@@ -1,4 +1,0 @@
-SELECT *
-FROM collections
-WHERE status = 'BOOKED'
-ORDER BY collectiondate DESC;

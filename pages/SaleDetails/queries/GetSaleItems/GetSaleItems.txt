@@ -1,9 +1,0 @@
-SELECT 
-    si.sell_price,
-    a.asset_ref,
-    a.serial_number,
-    a.make,
-    a.model
-FROM sale_items si
-JOIN assets a ON si.asset_id = a.asset_id
-WHERE si.sale_id = {{appsmith.URL.queryParams.sale_id}}::integer;

@@ -1,4 +1,0 @@
-SELECT asset_id, serial_number
-FROM assets
-WHERE serial_number ILIKE {{inp_search_serial.text}}
-LIMIT 1;

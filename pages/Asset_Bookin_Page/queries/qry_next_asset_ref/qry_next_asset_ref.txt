@@ -1,7 +1,0 @@
-UPDATE global_asset_counter
-SET next_number = next_number + 1
-WHERE id = 1
-RETURNING 
-    (SELECT next_ref FROM collection_asset_refs WHERE collection_id = {{appsmith.URL.queryParams.collectionId}})
-    || '-' ||
-    LPAD((next_number - 1)::text, 5, '0') AS asset_ref;

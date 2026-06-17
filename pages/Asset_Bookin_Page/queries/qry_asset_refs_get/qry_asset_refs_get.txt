@@ -1,5 +1,0 @@
-SELECT *
-FROM generate_asset_refs(
-    {{ Number(appsmith.URL.queryParams.collection_ref) }},
-    {{ Number(inp_qty.text) }}
-);

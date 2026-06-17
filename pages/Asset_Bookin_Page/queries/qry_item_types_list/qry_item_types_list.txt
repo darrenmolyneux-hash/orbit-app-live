@@ -1,3 +1,0 @@
-SELECT item_type_id, item_type_name,is_data_bearing
-FROM item_types
-ORDER BY item_type_id;

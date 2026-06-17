@@ -1,7 +1,0 @@
-INSERT INTO collection_asset_refs (collection_id, next_ref)
-SELECT
-  {{ appsmith.store.newCollectionId }},
-  COALESCE(MAX(next_ref), 0) + 1
-FROM collection_asset_refs
-WHERE collection_id > 0
-ON CONFLICT (collection_id) DO NOTHING;

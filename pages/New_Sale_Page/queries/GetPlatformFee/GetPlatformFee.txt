@@ -1,3 +1,0 @@
-SELECT fee_percentage
-FROM platform_fee
-WHERE platform_name = {{ SalePlatformSelect.selectedOptionValue }};

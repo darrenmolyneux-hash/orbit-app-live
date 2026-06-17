@@ -1,3 +1,0 @@
-UPDATE assets
-SET sell_price = {{ SellPriceInput.text }}
-WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }};

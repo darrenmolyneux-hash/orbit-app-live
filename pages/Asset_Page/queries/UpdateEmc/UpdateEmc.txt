@@ -1,3 +1,0 @@
-UPDATE assets
-SET emc_no = {{ EMCNoInput.text }}
-WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }};
