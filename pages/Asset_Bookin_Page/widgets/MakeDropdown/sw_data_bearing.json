@@ -1,0 +1,57 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "alignWidget": "LEFT",
+  "animateLoading": true,
+  "bottomRow": 10,
+  "boxShadow": "none",
+  "defaultSwitchState": "{{appsmith.store.isDataBearing}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "defaultSwitchState"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "defaultSwitchState"
+    },
+    {
+      "key": "onChange"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onChange"
+    }
+  ],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "fsyzeavvxz",
+  "label": "Data",
+  "labelPosition": "Right",
+  "labelTextColor": "#231f20",
+  "leftColumn": 49,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 18,
+  "mobileLeftColumn": 13,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 14,
+  "needsErrorInfo": false,
+  "onChange": "{{\n  (function() {\n    const itemType = qry_item_types_list.data.find(t => t.item_type_id === sel_item_type.selectedOptionValue);\n    storeValue('isDataBearing', itemType?.is_data_bearing ?? false);\n  })()\n}}",
+  "parentColumnSpace": 19.5,
+  "parentId": "xgvjb501nc",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 54,
+  "topRow": 6,
+  "type": "SWITCH_WIDGET",
+  "version": 1,
+  "widgetId": "4dwgxraa4i",
+  "widgetName": "sw_data_bearing"
+}

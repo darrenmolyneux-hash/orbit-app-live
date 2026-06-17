@@ -1,0 +1,9 @@
+SELECT 
+  ash.history_id,
+  ash.changed_at,
+  st.status_name,
+  ash.changed_by
+FROM asset_status_history ash
+LEFT JOIN status_types st ON st.status_id = ash.status_id
+WHERE ash.asset_id = {{appsmith.URL.queryParams.asset_id}}
+ORDER BY ash.changed_at DESC;

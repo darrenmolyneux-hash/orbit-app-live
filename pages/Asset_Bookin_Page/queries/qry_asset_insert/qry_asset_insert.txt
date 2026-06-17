@@ -1,0 +1,31 @@
+INSERT INTO assets (
+  collection_id,
+  customer,
+  item_type,
+  make,
+  model,
+  serial_number,
+  asset_ref,
+  data_bearing,
+  added_by,
+  date_added,
+  status_id
+)
+SELECT
+  {{appsmith.URL.queryParams.collectionId}},
+  (SELECT cu.customer_name FROM customers cu
+   JOIN collections c ON c.customer_id = cu.customer_id
+   WHERE c.collection_id = {{appsmith.URL.queryParams.collectionId}}),
+  '{{appsmith.store.pendingItemType}}',
+  '{{appsmith.store.pendingMake}}',
+  '{{appsmith.store.pendingModel}}',
+  serial.value,
+  ref.value,
+  {{appsmith.store.pendingDataBearing}},
+  '{{appsmith.user.name}}',
+  NOW(),
+  (SELECT status_id FROM status_types WHERE status_name = 'Received')
+FROM jsonb_array_elements_text('{{appsmith.store.pendingSerials || "[]"}}'::jsonb) WITH ORDINALITY AS serial(value, idx)
+JOIN jsonb_array_elements_text('{{appsmith.store.pendingAssetRefs || "[]"}}'::jsonb) WITH ORDINALITY AS ref(value, idx2)
+  ON serial.idx = ref.idx2
+RETURNING asset_id, asset_ref, item_type, make, model, serial_number;

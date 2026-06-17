@@ -1,0 +1,17 @@
+SELECT 
+    sale_id,
+    sale_ref,
+    customer,
+    sale_date,
+    total_price,
+    created_by
+FROM sales
+WHERE 
+    sale_date >= {{StartDate.selectedDate}}
+AND 
+    sale_date <= {{EndDate.selectedDate}}
+AND
+    (customer ILIKE '%' || {{sel_sale_customer.selectedOptionValue}} || '%' OR {{sel_sale_customer.selectedOptionValue === null}})
+AND
+    (sale_ref ILIKE '%' || {{RefFilter.text}} || '%' OR {{RefFilter.text === ""}})
+ORDER BY sale_date DESC;

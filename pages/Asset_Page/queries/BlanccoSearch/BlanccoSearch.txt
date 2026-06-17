@@ -1,0 +1,16 @@
+{
+  "filter": {
+   "date": {
+  "gte": "2024-01-01T00:00:00Z",
+  "lt": "2026-12-31T23:59:59Z"
+},
+    "fields": [
+      {
+        "name": "@system_serial",
+        "like": "{{ qry_GetAssetById.data[0].serial_number }}"
+      }
+    ]
+  },
+  "format": "XML",
+  "container": "NONE"
+}

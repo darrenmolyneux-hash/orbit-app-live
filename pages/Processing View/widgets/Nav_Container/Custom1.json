@@ -1,0 +1,72 @@
+{
+  "backgroundColor": "\"transparent\"",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "0",
+  "bottomRow": 7,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{\n  \"activePage\": \"Home\",\n  \"userName\": \"{{appsmith.user.name}}\"\n}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "backgroundColor"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onResetClick"
+    }
+  ],
+  "events": [
+    "onResetClick"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "xt2uojq801",
+  "leftColumn": 10,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 30,
+  "mobileLeftColumn": 12,
+  "mobileRightColumn": 35,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onResetClick": "{{showAlert('Successfully reset!!', '');}}",
+  "parentColumnSpace": 19.5,
+  "parentId": "6mkdux1j3r",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 63,
+  "srcDoc": {
+    "css": "* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  background: transparent;\n  overflow: hidden;\n  font-family: Inter, system-ui, sans-serif;\n}\n\n#nav {\n  display: flex;\n  align-items: center;\n  height: 56px;\n  gap: 2px;\n  padding: 0 8px;\n  width: 100%;\n}\n\n.btn {\n  background: transparent;\n  border: none;\n  color: rgba(255, 255, 255, 0.55);\n  font-size: 13px;\n  font-family: Inter, system-ui, sans-serif;\n  font-weight: 400;\n  padding: 6px 12px;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.15s, color 0.15s;\n  white-space: nowrap;\n}\n\n.btn:hover {\n  background: rgba(255, 255, 255, 0.08);\n  color: #ffffff;\n}\n\n.btn.active {\n  background: rgba(255, 255, 255, 0.15);\n  color: #ffffff;\n  font-weight: 600;\n}\n\n.spacer {\n  flex: 1;\n}\n\n.user {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-shrink: 0;\n}\n\n.avatar {\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  background: #1A5C3A;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 10px;\n  font-weight: 700;\n  color: #ffffff;\n}\n\n#username {\n  color: rgba(255, 255, 255, 0.65);\n  font-size: 13px;\n  white-space: nowrap;\n}",
+    "html": "<nav id=\"nav\">\n  <button class=\"btn\" data-page=\"Home\"        onclick=\"go('goHome')\">Home</button>\n  <button class=\"btn\" data-page=\"Collections\" onclick=\"go('goCollections')\">Collections</button>\n  <button class=\"btn\" data-page=\"Assets\"      onclick=\"go('goAssets')\">Assets</button>\n  <button class=\"btn\" data-page=\"Customers\"   onclick=\"go('goCustomers')\">Customers</button>\n  <button class=\"btn\" data-page=\"Reports\"     onclick=\"go('goReports')\">Reports</button>\n  <div class=\"spacer\"></div>\n  <div class=\"user\">\n    <div class=\"avatar\" id=\"initials\">DM</div>\n    <span id=\"username\">Darren Molyneux</span>\n  </div>\n</nav>",
+    "js": "appsmith.onReady(function () {\n  init();\n});\nappsmith.onModelChange(function () {\n  init();\n});\nfunction init() {\n  var model = appsmith.model;\n\n  // Set active nav button\n  var activePage = model && model.activePage ? model.activePage : '';\n  document.querySelectorAll('.btn').forEach(function (btn) {\n    if (btn.getAttribute('data-page') === activePage) {\n      btn.classList.add('active');\n    } else {\n      btn.classList.remove('active');\n    }\n  });\n\n  // Set user name and initials\n  var userName = model && model.userName ? model.userName : '';\n  if (userName) {\n    document.getElementById('username').textContent = userName;\n    var parts = userName.trim().split(' ');\n    var initials = parts.length >= 2 ? parts[0][0].toUpperCase() + parts[parts.length - 1][0].toUpperCase() : parts[0].substring(0, 2).toUpperCase();\n    document.getElementById('initials').textContent = initials;\n  }\n}\nfunction go(eventName) {\n  appsmith.triggerEvent(eventName);\n}"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 1,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  background: transparent;\n  overflow: hidden;\n  font-family: Inter, system-ui, sans-serif;\n}\n\n#nav {\n  display: flex;\n  align-items: center;\n  height: 56px;\n  gap: 2px;\n  padding: 0 8px;\n  width: 100%;\n}\n\n.btn {\n  background: transparent;\n  border: none;\n  color: rgba(255,255,255,0.55);\n  font-size: 13px;\n  font-family: Inter, system-ui, sans-serif;\n  font-weight: 400;\n  padding: 6px 12px;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.15s, color 0.15s;\n  white-space: nowrap;\n}\n\n.btn:hover {\n  background: rgba(255,255,255,0.08);\n  color: #ffffff;\n}\n\n.btn.active {\n  background: rgba(255,255,255,0.15);\n  color: #ffffff;\n  font-weight: 600;\n}\n\n.spacer {\n  flex: 1;\n}\n\n.user {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-shrink: 0;\n}\n\n.avatar {\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  background: #1A5C3A;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 10px;\n  font-weight: 700;\n  color: #ffffff;\n}\n\n#username {\n  color: rgba(255,255,255,0.65);\n  font-size: 13px;\n  white-space: nowrap;\n}",
+    "html": "<nav id=\"nav\">\n  <button class=\"btn\" data-page=\"Home\"        onclick=\"go('goHome')\">Home</button>\n  <button class=\"btn\" data-page=\"Collections\" onclick=\"go('goCollections')\">Collections</button>\n  <button class=\"btn\" data-page=\"Assets\"      onclick=\"go('goAssets')\">Assets</button>\n  <button class=\"btn\" data-page=\"Customers\"   onclick=\"go('goCustomers')\">Customers</button>\n  <button class=\"btn\" data-page=\"Reports\"     onclick=\"go('goReports')\">Reports</button>\n  <div class=\"spacer\"></div>\n  <div class=\"user\">\n    <div class=\"avatar\" id=\"initials\">DM</div>\n    <span id=\"username\">Darren Molyneux</span>\n  </div>\n</nav>",
+    "js": "appsmith.onReady(function() {\n  init();\n});\n\nappsmith.onModelChange(function() {\n  init();\n});\n\nfunction init() {\n  var model = appsmith.model;\n\n  // Set active nav button\n  var activePage = model && model.activePage ? model.activePage : '';\n  document.querySelectorAll('.btn').forEach(function(btn) {\n    if (btn.getAttribute('data-page') === activePage) {\n      btn.classList.add('active');\n    } else {\n      btn.classList.remove('active');\n    }\n  });\n\n  // Set user name and initials\n  var userName = model && model.userName ? model.userName : '';\n  if (userName) {\n    document.getElementById('username').textContent = userName;\n    var parts = userName.trim().split(' ');\n    var initials = parts.length >= 2\n      ? parts[0][0].toUpperCase() + parts[parts.length-1][0].toUpperCase()\n      : parts[0].substring(0,2).toUpperCase();\n    document.getElementById('initials').textContent = initials;\n  }\n}\n\nfunction go(eventName) {\n  appsmith.triggerEvent(eventName);\n}"
+  },
+  "version": 1,
+  "widgetId": "8l4yeqcn6y",
+  "widgetName": "Custom1"
+}

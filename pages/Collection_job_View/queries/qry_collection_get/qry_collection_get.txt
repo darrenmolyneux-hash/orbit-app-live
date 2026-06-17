@@ -1,0 +1,28 @@
+SELECT
+  c.collection_id,
+  c.job_type,
+  c.collection_date,
+  c.status,
+  c.instructions,
+  c.dial,
+  c.dial_expiry,
+  c.msa_signed,
+  c.site_contact,
+  c.contact_number,
+  c.contact_email,
+  c.notes,
+  c.created_by,
+  c.created_at,
+  c.address1,
+  c.address2,
+  c.city,
+  c.postcode,
+  c.expected_assets,
+  cu.customer_id,
+  cu.customer_name,
+  cu.dial_ref        AS customer_dial_ref,
+  cu.dial_expiry     AS customer_dial_expiry,
+  cu.msa_signed      AS customer_msa_signed
+FROM collections c
+JOIN customers cu ON cu.customer_id = c.customer_id
+WHERE c.collection_id = {{Number(appsmith.URL.queryParams.collectionId)}};

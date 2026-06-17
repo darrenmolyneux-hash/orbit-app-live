@@ -1,0 +1,113 @@
+{
+  "appIsExample": false,
+  "appLayout": {
+    "type": "DESKTOP"
+  },
+  "applicationDetail": {
+    "navigationSetting": {
+      "colorStyle": "light",
+      "logoAssetId": "",
+      "logoConfiguration": "logoOnly",
+      "navStyle": "stacked",
+      "orientation": "top",
+      "position": "static",
+      "showNavbar": false,
+      "showSignIn": true
+    },
+    "themeSetting": {
+      "appMaxWidth": "LARGE",
+      "density": 1.0,
+      "sizing": 1.0
+    }
+  },
+  "applicationVersion": 2,
+  "collapseInvisibleWidgets": true,
+  "color": "#D9E7FF",
+  "evaluationVersion": 2,
+  "pages": [
+    {
+      "id": "Login_Page",
+      "isDefault": false
+    },
+    {
+      "id": "Home",
+      "isDefault": true
+    },
+    {
+      "id": "Create_Customer",
+      "isDefault": false
+    },
+    {
+      "id": "Customer_List",
+      "isDefault": false
+    },
+    {
+      "id": "Collection_Page",
+      "isDefault": false
+    },
+    {
+      "id": "Collection_job_View",
+      "isDefault": false
+    },
+    {
+      "id": "Upcoming _Collection",
+      "isDefault": false
+    },
+    {
+      "id": "Asset_Bookin_Page",
+      "isDefault": false
+    },
+    {
+      "id": "Asset_Page",
+      "isDefault": false
+    },
+    {
+      "id": "Admin_Console",
+      "isDefault": false
+    },
+    {
+      "id": "New_Sale_Page",
+      "isDefault": false
+    },
+    {
+      "id": "SalesRecords",
+      "isDefault": false
+    },
+    {
+      "id": "SaleDetails",
+      "isDefault": false
+    },
+    {
+      "id": "NewPageTemplate",
+      "isDefault": false
+    },
+    {
+      "id": "Processing View",
+      "isDefault": false
+    },
+    {
+      "id": "Asset List",
+      "isDefault": false
+    }
+  ],
+  "unpublishedAppLayout": {
+    "type": "DESKTOP"
+  },
+  "unpublishedApplicationDetail": {
+    "navigationSetting": {
+      "colorStyle": "light",
+      "logoAssetId": "",
+      "logoConfiguration": "logoOnly",
+      "navStyle": "stacked",
+      "orientation": "top",
+      "position": "static",
+      "showNavbar": false,
+      "showSignIn": true
+    },
+    "themeSetting": {
+      "appMaxWidth": "LARGE",
+      "density": 1.0,
+      "sizing": 1.0
+    }
+  }
+}

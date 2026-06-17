@@ -1,0 +1,3 @@
+SELECT * FROM neon_auth."account" LIMIT 10;UPDATE assets
+SET overall_grade = {{Custom_Grading.model.overallGrade}}
+WHERE asset_id = {{appsmith.URL.queryParams.asset_id}}::integer;

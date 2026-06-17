@@ -1,0 +1,3 @@
+SELECT COUNT(*) AS total_booked
+FROM assets
+WHERE collection_id = {{appsmith.URL.queryParams.collectionId}};

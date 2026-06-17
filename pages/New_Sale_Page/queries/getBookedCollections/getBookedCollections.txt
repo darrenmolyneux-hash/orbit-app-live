@@ -1,0 +1,12 @@
+SELECT 
+    c.collectionid,
+    c.collectiondate,
+    c.customerid,
+    cu.customername,
+    c.address1,
+    c.status
+FROM collections c
+LEFT JOIN customers cu
+    ON c.customerid = cu.customer_id
+WHERE c.status = 'BOOKED'
+ORDER BY c.collectiondate DESC;

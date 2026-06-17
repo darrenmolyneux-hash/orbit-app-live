@@ -1,0 +1,8 @@
+SELECT
+  note_id,
+  note_text,
+  created_by,
+  TO_CHAR(created_at, 'DD Mon YYYY HH24:MI') AS created_at
+FROM job_notes
+WHERE collection_id = {{Number(appsmith.URL.queryParams.collectionId)}}
+ORDER BY created_at DESC;

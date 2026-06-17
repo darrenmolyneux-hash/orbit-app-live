@@ -1,0 +1,61 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 27,
+  "boxShadow": "none",
+  "defaultOptionValue": "GREEN",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "4xqzunbjl5",
+  "labelAlignment": "left",
+  "labelPosition": "Left",
+  "labelText": "Amazon Condition",
+  "labelTextSize": "0.875rem",
+  "labelWidth": "17",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 30,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 25,
+  "mobileTopRow": 23,
+  "needsErrorInfo": false,
+  "optionLabel": "name",
+  "optionValue": "code",
+  "originalBottomRow": 30,
+  "originalTopRow": 23,
+  "parentColumnSpace": 4.7841796875,
+  "parentId": "q34ac66bp9",
+  "parentRowSpace": 10,
+  "placeholderText": "Select option",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 50,
+  "serverSideFiltering": false,
+  "sourceData": "[\n  {\n    \"name\": \"Amazon Renewed\",\n    \"code\": \"AMAZON RENEWED\"\n  },\n  {\n    \"name\": \"Used Good\",\n    \"code\": \"USED GOOD\"\n  },\n  {\n    \"name\": \"Used Acceptable\",\n    \"code\": \"USED ACCEPTABLE\"\n  }\n]",
+  "topRow": 23,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "obm3mfgd24",
+  "widgetName": "Select1"
+}

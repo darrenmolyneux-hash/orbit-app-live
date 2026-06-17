@@ -1,0 +1,12 @@
+SELECT gc.id AS category_id, gc.category_name, gc.display_order AS cat_order, gc.is_checklist,
+       go.id AS option_id, go.option_label, go.grade_value, go.display_order AS opt_order,
+       aga.cosmetics_option_id, aga.lcd_option_id, aga.functionality_option_id, aga.missing_option_id,
+       aga.bios_lock, aga.mdm_lock, aga.efi_lock, aga.icloud_lock, aga.intune_lock,
+       aga.calculated_grade, aga.override_grade, aga.override_reason, aga.disposition, aga.notes
+FROM grading_categories gc
+JOIN grading_options go ON go.category_id = gc.id
+LEFT JOIN asset_grading_answers aga ON aga.asset_id = {{appsmith.URL.queryParams.asset_id}}
+WHERE gc.item_type_id = (
+  SELECT item_type::integer FROM assets WHERE asset_id = {{appsmith.URL.queryParams.asset_id}}
+)
+ORDER BY gc.display_order, go.display_order;

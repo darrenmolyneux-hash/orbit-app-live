@@ -1,0 +1,11 @@
+SELECT
+  'collection'            AS entity_type,
+  c.collection_id         AS entity_id,
+  c.collection_id::text   AS title,
+  cu.customer_name        AS subtitle,
+  c.status                AS status,
+  c.created_at            AS event_time
+FROM collections c
+JOIN customers cu ON cu.customer_id = c.customer_id
+ORDER BY c.created_at DESC
+LIMIT 10;

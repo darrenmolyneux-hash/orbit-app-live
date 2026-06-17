@@ -1,0 +1,70 @@
+{
+  "backgroundColor": "#FFFFFF",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 38,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{{ { activities: qry_recent_activity.data } }}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultModel"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onPageLoad"
+    }
+  ],
+  "events": [
+    "onPageLoad"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "0oi3afkdgb",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 31,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 24,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "onPageLoad": "{{qry_recent_activity.run()}}",
+  "originalBottomRow": 38,
+  "originalTopRow": 10,
+  "parentColumnSpace": 12.9990234375,
+  "parentId": "pi5367wwx0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 63,
+  "srcDoc": {
+    "css": ".app {\n  height: calc(var(--appsmith-ui-height) * 1px);\n  width: calc(var(--appsmith-ui-width) * 1px);\n  justify-content: center;\n  border-radius: var(--appsmith-theme-borderRadius);\n  box-shadow: var(--appsmith-theme-boxShadow);\n  padding: 29px 25px;\n  box-sizing: border-box;\n  font-family: system-ui;\n  background: #fff;\n}\n\n.tip-container {\n  margin-bottom: 20px;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.tip-container h2 {\n  margin-bottom: 20px;\n  font-size: 16px;\n  font-weight: 700;\n}\n\n.tip-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n  margin-bottom: 9px;\n}\n\n.tip-header div {\n  color: #999;\n}\n\n.content {\n  white-space: pre-wrap;\n  word-break: break-word;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.button-container {\n  text-align: right;\n  padding-top: 4px;\n}\n\n.button-container button {\n  margin: 0 10px;\n  cursor: pointer;\n  border-radius: var(--appsmith-theme-borderRadius);\n  padding: 6px 16px;\n  background: none;\n  height: auto;\n  transition: all 0.3s ease;\n}\n\n.button-container button.primary {\n  background: var(--appsmith-theme-primaryColor) !important;\n  color: #fff;\n  border: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n  border: 1px solid #999;\n  color: #999;\n  outline: none;\n  box-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n  color: var(--appsmith-theme-primaryColor);\n  border-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n  cursor: default;\n}",
+    "html": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css\">\n<div id=\"root\"></div>",
+    "js": "import React from \"https://esm.sh/react@18.2.0\";\nimport ReactDOM from \"https://esm.sh/react-dom@18.2.0\";\nfunction getIcon(type, status) {\n  if (type === 'collection') {\n    if (status === 'Booked') return {\n      icon: 'calendar-event',\n      bg: '#E1F5EE',\n      color: '#085041'\n    };\n    if (status === 'Processing') return {\n      icon: 'loader-2',\n      bg: '#FAEEDA',\n      color: '#633806'\n    };\n    return {\n      icon: 'check',\n      bg: '#EAF3DE',\n      color: '#27500A'\n    };\n  }\n  if (type === 'customer') return {\n    icon: 'user-plus',\n    bg: '#E6F1FB',\n    color: '#0C447C'\n  };\n  if (type === 'asset') return {\n    icon: 'box',\n    bg: '#EEEDFE',\n    color: '#3C3489'\n  };\n  return {\n    icon: 'circle',\n    bg: '#F1EFE8',\n    color: '#444441'\n  };\n}\nfunction getTitle(activity) {\n  if (activity.activity_type === 'collection') {\n    return `Collection ${activity.status?.toLowerCase() || 'updated'} — ${activity.record_id || 'Job'}`;\n  }\n  if (activity.activity_type === 'customer') {\n    return `New customer created — ${activity.title_detail}`;\n  }\n  if (activity.activity_type === 'asset') {\n    return `Asset ${activity.status?.toLowerCase() || 'updated'} — ${activity.title_detail || '#' + activity.record_id}`;\n  }\n  return activity.title_detail || 'Activity';\n}\nfunction timeAgo(dateStr) {\n  if (!dateStr) return '';\n  const date = new Date(dateStr);\n  const now = new Date();\n  const diffMs = now - date;\n  const diffMins = Math.floor(diffMs / 60000);\n  const diffHours = Math.floor(diffMins / 60);\n  const diffDays = Math.floor(diffHours / 24);\n  if (diffMins < 1) return 'just now';\n  if (diffMins < 60) return `${diffMins}m ago`;\n  if (diffHours < 24) return `${diffHours}h ago`;\n  if (diffDays === 1) return 'yesterday';\n  return `${diffDays}d ago`;\n}\nfunction App() {\n  const [model, setModel] = React.useState(appsmith.model);\n  React.useEffect(() => {\n    appsmith.onModelChange(newModel => {\n      setModel({\n        ...newModel\n      });\n    });\n  }, []);\n  let activities = model.activities;\n  if (typeof activities === 'string') {\n    try {\n      activities = JSON.parse(activities);\n    } catch (e) {\n      activities = [];\n    }\n  }\n  activities = activities || [];\n  if (activities.length === 0) {\n    return /*#__PURE__*/React.createElement(\"div\", {\n      style: {\n        textAlign: 'center',\n        padding: '24px 0',\n        color: '#9ca3af',\n        fontSize: '13px',\n        fontFamily: 'sans-serif'\n      }\n    }, \"No recent activity\");\n  }\n  return /*#__PURE__*/React.createElement(\"div\", {\n    style: {\n      fontFamily: 'sans-serif',\n      display: 'flex',\n      flexDirection: 'column',\n      gap: '8px'\n    }\n  }, activities.map((activity, i) => {\n    const {\n      icon,\n      bg,\n      color\n    } = getIcon(activity.activity_type, activity.status);\n    return /*#__PURE__*/React.createElement(\"div\", {\n      key: i,\n      style: {\n        background: '#fff',\n        border: '0.5px solid #e5e7eb',\n        borderRadius: '8px',\n        padding: '12px 14px',\n        display: 'flex',\n        alignItems: 'center',\n        gap: '12px'\n      }\n    }, /*#__PURE__*/React.createElement(\"div\", {\n      style: {\n        width: '36px',\n        height: '36px',\n        borderRadius: '50%',\n        background: bg,\n        display: 'flex',\n        alignItems: 'center',\n        justifyContent: 'center',\n        flexShrink: 0\n      }\n    }, /*#__PURE__*/React.createElement(\"i\", {\n      className: `ti ti-${icon}`,\n      style: {\n        fontSize: '18px',\n        color: color\n      }\n    })), /*#__PURE__*/React.createElement(\"div\", {\n      style: {\n        flex: 1\n      }\n    }, /*#__PURE__*/React.createElement(\"div\", {\n      style: {\n        fontSize: '13px',\n        fontWeight: 500,\n        color: '#111827'\n      }\n    }, getTitle(activity)), /*#__PURE__*/React.createElement(\"div\", {\n      style: {\n        fontSize: '12px',\n        color: '#6b7280'\n      }\n    }, activity.created_by || 'System')), /*#__PURE__*/React.createElement(\"div\", {\n      style: {\n        fontSize: '12px',\n        color: '#9ca3af',\n        flexShrink: 0\n      }\n    }, timeAgo(activity.created_at)));\n  }));\n}\nappsmith.onReady(() => {\n  ReactDOM.render(/*#__PURE__*/React.createElement(App, null), document.getElementById(\"root\"));\n});"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 10,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": ".app {\n  height: calc(var(--appsmith-ui-height) * 1px);\n  width: calc(var(--appsmith-ui-width) * 1px);\n  justify-content: center;\n  border-radius: var(--appsmith-theme-borderRadius);\n  box-shadow: var(--appsmith-theme-boxShadow);\n  padding: 29px 25px;\n  box-sizing: border-box;\n  font-family: system-ui;\n  background: #fff;\n}\n\n.tip-container {\n  margin-bottom: 20px;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.tip-container h2 {\n  margin-bottom: 20px;\n  font-size: 16px;\n  font-weight: 700;\n}\n\n.tip-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n  margin-bottom: 9px;\n}\n\n.tip-header div {\n  color: #999;\n}\n\n.content {\n  white-space: pre-wrap;\n  word-break: break-word;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.button-container {\n  text-align: right;\n  padding-top: 4px;\n}\n\n.button-container button {\n  margin: 0 10px;\n  cursor: pointer;\n  border-radius: var(--appsmith-theme-borderRadius);\n  padding: 6px 16px;\n  background: none;\n  height: auto;\n  transition: all 0.3s ease;\n}\n\n.button-container button.primary {\n  background: var(--appsmith-theme-primaryColor) !important;\n  color: #fff;\n  border: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n  border: 1px solid #999;\n  color: #999;\n  outline: none;\n  box-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n  color: var(--appsmith-theme-primaryColor);\n  border-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n  cursor: default;\n}",
+    "html": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css\">\n<div id=\"root\"></div>",
+    "js": "import React from \"https://esm.sh/react@18.2.0\";\nimport ReactDOM from \"https://esm.sh/react-dom@18.2.0\";\n\nfunction getIcon(type, status) {\n  if (type === 'collection') {\n    if (status === 'Booked') return { icon: 'calendar-event', bg: '#E1F5EE', color: '#085041' };\n    if (status === 'Processing') return { icon: 'loader-2', bg: '#FAEEDA', color: '#633806' };\n    return { icon: 'check', bg: '#EAF3DE', color: '#27500A' };\n  }\n  if (type === 'customer') return { icon: 'user-plus', bg: '#E6F1FB', color: '#0C447C' };\n  if (type === 'asset') return { icon: 'box', bg: '#EEEDFE', color: '#3C3489' };\n  return { icon: 'circle', bg: '#F1EFE8', color: '#444441' };\n}\n\nfunction getTitle(activity) {\n  if (activity.activity_type === 'collection') {\n    return `Collection ${activity.status?.toLowerCase() || 'updated'} — ${activity.record_id || 'Job'}`;\n  }\n  if (activity.activity_type === 'customer') {\n    return `New customer created — ${activity.title_detail}`;\n  }\n if (activity.activity_type === 'asset') {\n  return `Asset ${activity.status?.toLowerCase() || 'updated'} — ${activity.title_detail || ('#' + activity.record_id)}`;\n\n  }\n  return activity.title_detail || 'Activity';\n}\n\nfunction timeAgo(dateStr) {\n  if (!dateStr) return '';\n  const date = new Date(dateStr);\n  const now = new Date();\n  const diffMs = now - date;\n  const diffMins = Math.floor(diffMs / 60000);\n  const diffHours = Math.floor(diffMins / 60);\n  const diffDays = Math.floor(diffHours / 24);\n  if (diffMins < 1) return 'just now';\n  if (diffMins < 60) return `${diffMins}m ago`;\n  if (diffHours < 24) return `${diffHours}h ago`;\n  if (diffDays === 1) return 'yesterday';\n  return `${diffDays}d ago`;\n}\n\nfunction App() {\n  const [model, setModel] = React.useState(appsmith.model);\n\n  React.useEffect(() => {\n    appsmith.onModelChange((newModel) => {\n      setModel({ ...newModel });\n    });\n  }, []);\n\n  let activities = model.activities;\n  if (typeof activities === 'string') {\n    try {\n      activities = JSON.parse(activities);\n    } catch (e) {\n      activities = [];\n    }\n  }\n  activities = activities || [];\n\n  if (activities.length === 0) {\n    return (\n      <div style={{ textAlign: 'center', padding: '24px 0', color: '#9ca3af', fontSize: '13px', fontFamily: 'sans-serif' }}>\n        No recent activity\n      </div>\n    );\n  }\n\n  return (\n    <div style={{ fontFamily: 'sans-serif', display: 'flex', flexDirection: 'column', gap: '8px' }}>\n      {activities.map((activity, i) => {\n        const { icon, bg, color } = getIcon(activity.activity_type, activity.status);\n        return (\n          <div key={i} style={{\n            background: '#fff', border: '0.5px solid #e5e7eb', borderRadius: '8px',\n            padding: '12px 14px', display: 'flex', alignItems: 'center', gap: '12px'\n          }}>\n            <div style={{\n              width: '36px', height: '36px', borderRadius: '50%', background: bg,\n              display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0\n            }}>\n              <i className={`ti ti-${icon}`} style={{ fontSize: '18px', color: color }}></i>\n            </div>\n            <div style={{ flex: 1 }}>\n              <div style={{ fontSize: '13px', fontWeight: 500, color: '#111827' }}>{getTitle(activity)}</div>\n              <div style={{ fontSize: '12px', color: '#6b7280' }}>{activity.created_by || 'System'}</div>\n            </div>\n            <div style={{ fontSize: '12px', color: '#9ca3af', flexShrink: 0 }}>{timeAgo(activity.created_at)}</div>\n          </div>\n        );\n      })}\n    </div>\n  );\n}\n\nappsmith.onReady(() => {\n  ReactDOM.render(<App />, document.getElementById(\"root\"));\n});"
+  },
+  "version": 1,
+  "widgetId": "0y7eusgxsm",
+  "widgetName": "Custom2"
+}

@@ -1,0 +1,75 @@
+{
+  "accentColor": "{{\nNumber((BlanccoParser.parseBlancco().battery_health || \"0\").replace(\"%\",\"\")) >= 80\n  ? \"#00C853\"\n  : \"#D50000\"\n}}",
+  "animateLoading": true,
+  "bottomRow": 38,
+  "defaultEndValue": "{{\nNumber((BlanccoParser.parseBlancco().battery_health || \"0\").replace(\"%\",\"\"))\n}}",
+  "defaultStartValue": "{{0}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "defaultStartValue"
+    },
+    {
+      "key": "defaultEndValue"
+    },
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "accentColor"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "w1pddf53z0",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Battery Health",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 8,
+  "leftColumn": 1,
+  "marks": [
+    {
+      "label": "25%",
+      "value": 25
+    },
+    {
+      "label": "50%",
+      "value": 50
+    },
+    {
+      "label": "75%",
+      "value": 75
+    }
+  ],
+  "max": "100",
+  "min": "",
+  "minRange": 5,
+  "mobileBottomRow": 53,
+  "mobileLeftColumn": 8,
+  "mobileRightColumn": 48,
+  "mobileTopRow": 45,
+  "needsErrorInfo": false,
+  "originalBottomRow": 38,
+  "originalTopRow": 30,
+  "parentColumnSpace": 19.1875,
+  "parentId": "dc4v6fjacj",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 34,
+  "shouldScroll": false,
+  "shouldTruncate": false,
+  "showMarksLabel": true,
+  "sliderSize": "m",
+  "step": "1",
+  "tooltipAlwaysOn": false,
+  "topRow": 30,
+  "type": "RANGE_SLIDER_WIDGET",
+  "version": 1,
+  "widgetId": "4mjimeappi",
+  "widgetName": "RangeSlider1"
+}

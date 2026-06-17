@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6a305b9e0882adc7e482e226_45c7e9c4-733d-4bf6-b3ec-eace3c8f02e3",
+  "id": "Asset_Bookin_Page_JSUpload",
+  "unpublishedCollection": {
+    "name": "JSUpload",
+    "pageId": "Asset_Bookin_Page",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

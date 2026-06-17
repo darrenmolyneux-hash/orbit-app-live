@@ -1,0 +1,1 @@
+SELECT part_type_id, name FROM part_types ORDER BY name;

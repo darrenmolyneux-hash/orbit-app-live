@@ -1,0 +1,9 @@
+SELECT 
+    a.asset_id,
+    a.status_id,
+    st.status_name
+FROM assets a
+LEFT JOIN status_types st 
+    ON a.status_id = st.status_id
+WHERE a.asset_id = {{ SearchResultTable.selectedRow?.asset_id || -1 }}
+

@@ -1,0 +1,6 @@
+SELECT 
+  dial_ref,
+  dial_expiry,
+  msa_signed
+FROM customers
+WHERE customer_id = {{ sel_customer.selectedOptionValue }};

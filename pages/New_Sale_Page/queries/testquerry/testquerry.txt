@@ -1,0 +1,4 @@
+SELECT asset_id, status_id
+FROM assets
+WHERE status_id IS NULL
+   OR status_id = '';

@@ -1,0 +1,6 @@
+SELECT 
+  item_type,
+  COUNT(*) AS total
+FROM assets
+GROUP BY item_type
+ORDER BY item_type;

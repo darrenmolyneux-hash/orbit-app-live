@@ -1,0 +1,3 @@
+UPDATE assets
+SET model_id = {{HiddenModelIdInput.text.text}}
+WHERE asset_id = {{appsmith.URL.queryParams.asset_id}}

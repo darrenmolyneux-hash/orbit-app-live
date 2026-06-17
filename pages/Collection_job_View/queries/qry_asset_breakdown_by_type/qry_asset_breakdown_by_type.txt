@@ -1,0 +1,6 @@
+SELECT it.item_type_name, COUNT(*) AS qty
+FROM assets a
+JOIN item_types it ON it.item_type_id::text = a.item_type
+WHERE a.collection_id = {{appsmith.URL.queryParams.collectionId}}
+GROUP BY it.item_type_name
+ORDER BY it.item_type_name;

@@ -1,0 +1,67 @@
+{
+  "backgroundColor": "#FFFFFF",
+  "borderColor": "#E0DEDE",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "1",
+  "bottomRow": 100,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{\n  \"expected_assets\": []\n}",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onDataChange"
+    }
+  ],
+  "events": [
+    "onDataChange"
+  ],
+  "isCanvas": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "0oi3afkdgb",
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 30,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 23,
+  "mobileTopRow": 0,
+  "needsErrorInfo": false,
+  "onDataChange": "{{storeValue('expected_assets', Custom_ExpectedAssets.model.expected_assets);}}",
+  "originalBottomRow": 100,
+  "originalTopRow": 57,
+  "parentColumnSpace": 8.6650390625,
+  "parentId": "f1aehxo313",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 63,
+  "srcDoc": {
+    "css": ".app {\n  height: calc(var(--appsmith-ui-height) * 1px);\n  width: calc(var(--appsmith-ui-width) * 1px);\n  justify-content: center;\n  border-radius: var(--appsmith-theme-borderRadius);\n  box-shadow: var(--appsmith-theme-boxShadow);\n  padding: 29px 25px;\n  box-sizing: border-box;\n  font-family: system-ui;\n  background: #fff;\n}\n\n.tip-container {\n  margin-bottom: 20px;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.tip-container h2 {\n  margin-bottom: 20px;\n  font-size: 16px;\n  font-weight: 700;\n}\n\n.tip-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n  margin-bottom: 9px;\n}\n\n.tip-header div {\n  color: #999;\n}\n\n.content {\n  white-space: pre-wrap;\n  word-break: break-word;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.button-container {\n  text-align: right;\n  padding-top: 4px;\n}\n\n.button-container button {\n  margin: 0 10px;\n  cursor: pointer;\n  border-radius: var(--appsmith-theme-borderRadius);\n  padding: 6px 16px;\n  background: none;\n  height: auto;\n  transition: all 0.3s ease;\n}\n\n.button-container button.primary {\n  background: var(--appsmith-theme-primaryColor) !important;\n  color: #fff;\n  border: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n  border: 1px solid #999;\n  color: #999;\n  outline: none;\n  box-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n  color: var(--appsmith-theme-primaryColor);\n  border-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n  cursor: default;\n}",
+    "html": "<div id=\"root\"></div>",
+    "js": "import React from \"https://esm.sh/react@18.2.0\";\nimport ReactDOM from \"https://esm.sh/react-dom@18.2.0\";\nfunction App() {\n  const initial = appsmith.model.expected_assets && appsmith.model.expected_assets.length > 0 ? appsmith.model.expected_assets : [];\n  const [rows, setRows] = React.useState(initial);\n  React.useEffect(() => {\n    appsmith.updateModel({\n      expected_assets: rows\n    });\n  }, [rows]);\n  const updateRow = (index, field, value) => {\n    const newRows = [...rows];\n    newRows[index] = {\n      ...newRows[index],\n      [field]: value\n    };\n    setRows(newRows);\n  };\n  const addRow = () => {\n    setRows([...rows, {\n      item: '',\n      qty: 0\n    }]);\n  };\n  const removeRow = index => {\n    setRows(rows.filter((_, i) => i !== index));\n  };\n  const total = rows.reduce((sum, r) => sum + (parseInt(r.qty) || 0), 0);\n  const inpStyle = {\n    width: '100%',\n    padding: '7px 10px',\n    border: '0.5px solid #e5e7eb',\n    borderRadius: '6px',\n    fontSize: '13px',\n    color: '#111827',\n    background: '#fff',\n    outline: 'none',\n    boxSizing: 'border-box'\n  };\n  return /*#__PURE__*/React.createElement(\"div\", {\n    style: {\n      fontFamily: 'sans-serif'\n    }\n  }, /*#__PURE__*/React.createElement(\"div\", {\n    style: {\n      display: 'grid',\n      gridTemplateColumns: '1fr 80px 32px',\n      gap: '8px',\n      padding: '0 4px 6px',\n      borderBottom: '0.5px solid #e5e7eb',\n      marginBottom: '8px'\n    }\n  }, /*#__PURE__*/React.createElement(\"div\", {\n    style: {\n      fontSize: '11px',\n      color: '#9ca3af',\n      textTransform: 'uppercase'\n    }\n  }, \"Item description\"), /*#__PURE__*/React.createElement(\"div\", {\n    style: {\n      fontSize: '11px',\n      color: '#9ca3af',\n      textTransform: 'uppercase',\n      textAlign: 'center'\n    }\n  }, \"Qty\"), /*#__PURE__*/React.createElement(\"div\", null)), rows.length === 0 && /*#__PURE__*/React.createElement(\"div\", {\n    style: {\n      textAlign: 'center',\n      padding: '20px 0',\n      color: '#9ca3af',\n      fontSize: '13px'\n    }\n  }, \"No items added yet\"), rows.map((row, i) => /*#__PURE__*/React.createElement(\"div\", {\n    key: i,\n    style: {\n      display: 'grid',\n      gridTemplateColumns: '1fr 80px 32px',\n      gap: '8px',\n      marginBottom: '6px',\n      alignItems: 'center'\n    }\n  }, /*#__PURE__*/React.createElement(\"input\", {\n    style: inpStyle,\n    placeholder: \"e.g. Laptops\",\n    value: row.item,\n    onChange: e => updateRow(i, 'item', e.target.value)\n  }), /*#__PURE__*/React.createElement(\"input\", {\n    style: {\n      ...inpStyle,\n      textAlign: 'center'\n    },\n    type: \"number\",\n    min: \"0\",\n    placeholder: \"0\",\n    value: row.qty,\n    onChange: e => updateRow(i, 'qty', parseInt(e.target.value) || 0)\n  }), /*#__PURE__*/React.createElement(\"button\", {\n    onClick: () => removeRow(i),\n    style: {\n      width: '32px',\n      height: '32px',\n      border: 'none',\n      background: 'none',\n      cursor: 'pointer',\n      borderRadius: '6px',\n      color: '#9ca3af',\n      fontSize: '16px'\n    }\n  }, \"\\xD7\"))), /*#__PURE__*/React.createElement(\"button\", {\n    onClick: addRow,\n    style: {\n      display: 'flex',\n      alignItems: 'center',\n      justifyContent: 'center',\n      gap: '6px',\n      background: 'none',\n      border: '0.5px dashed #d1d5db',\n      borderRadius: '6px',\n      padding: '7px 14px',\n      fontSize: '13px',\n      color: '#6b7280',\n      cursor: 'pointer',\n      marginTop: '6px',\n      width: '100%'\n    }\n  }, \"+ Add item\"), /*#__PURE__*/React.createElement(\"div\", {\n    style: {\n      display: 'flex',\n      justifyContent: 'space-between',\n      alignItems: 'center',\n      marginTop: '12px',\n      paddingTop: '12px',\n      borderTop: '0.5px solid #e5e7eb',\n      fontSize: '12px',\n      color: '#6b7280'\n    }\n  }, /*#__PURE__*/React.createElement(\"span\", null, \"Total expected: \", /*#__PURE__*/React.createElement(\"strong\", {\n    style: {\n      color: '#111827'\n    }\n  }, total), \" items\"), /*#__PURE__*/React.createElement(\"span\", {\n    style: {\n      fontSize: '11px',\n      color: '#9ca3af'\n    }\n  }, \"Saves with collection record\")));\n}\nappsmith.onReady(() => {\n  ReactDOM.render(/*#__PURE__*/React.createElement(App, null), document.getElementById(\"root\"));\n});"
+  },
+  "theme": "{{appsmith.theme}}",
+  "topRow": 57,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": ".app {\n  height: calc(var(--appsmith-ui-height) * 1px);\n  width: calc(var(--appsmith-ui-width) * 1px);\n  justify-content: center;\n  border-radius: var(--appsmith-theme-borderRadius);\n  box-shadow: var(--appsmith-theme-boxShadow);\n  padding: 29px 25px;\n  box-sizing: border-box;\n  font-family: system-ui;\n  background: #fff;\n}\n\n.tip-container {\n  margin-bottom: 20px;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.tip-container h2 {\n  margin-bottom: 20px;\n  font-size: 16px;\n  font-weight: 700;\n}\n\n.tip-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: baseline;\n  margin-bottom: 9px;\n}\n\n.tip-header div {\n  color: #999;\n}\n\n.content {\n  white-space: pre-wrap;\n  word-break: break-word;\n  font-size: 14px;\n  line-height: 1.571429;\n}\n\n.button-container {\n  text-align: right;\n  padding-top: 4px;\n}\n\n.button-container button {\n  margin: 0 10px;\n  cursor: pointer;\n  border-radius: var(--appsmith-theme-borderRadius);\n  padding: 6px 16px;\n  background: none;\n  height: auto;\n  transition: all 0.3s ease;\n}\n\n.button-container button.primary {\n  background: var(--appsmith-theme-primaryColor) !important;\n  color: #fff;\n  border: 1px solid var(--appsmith-theme-primaryColor) !important;\n}\n\n.button-container button.reset {\n  border: 1px solid #999;\n  color: #999;\n  outline: none;\n  box-shadow: none;\n}\n\n.button-container button.reset:hover:not(:disabled) {\n  color: var(--appsmith-theme-primaryColor);\n  border-color: var(--appsmith-theme-primaryColor);\n}\n\n.button-container button.reset:disabled {\n  cursor: default;\n}",
+    "html": "<div id=\"root\"></div>",
+    "js": "import React from \"https://esm.sh/react@18.2.0\";\nimport ReactDOM from \"https://esm.sh/react-dom@18.2.0\";\n\nfunction App() {\n  const initial = (appsmith.model.expected_assets && appsmith.model.expected_assets.length > 0)\n    ? appsmith.model.expected_assets\n    : [];\n\n  const [rows, setRows] = React.useState(initial);\n\n  React.useEffect(() => {\n    appsmith.updateModel({ expected_assets: rows });\n  }, [rows]);\n\n  const updateRow = (index, field, value) => {\n    const newRows = [...rows];\n    newRows[index] = { ...newRows[index], [field]: value };\n    setRows(newRows);\n  };\n\n  const addRow = () => {\n    setRows([...rows, { item: '', qty: 0 }]);\n  };\n\n  const removeRow = (index) => {\n    setRows(rows.filter((_, i) => i !== index));\n  };\n\n  const total = rows.reduce((sum, r) => sum + (parseInt(r.qty) || 0), 0);\n\n  const inpStyle = {\n    width: '100%', padding: '7px 10px', border: '0.5px solid #e5e7eb', borderRadius: '6px',\n    fontSize: '13px', color: '#111827', background: '#fff', outline: 'none', boxSizing: 'border-box'\n  };\n\n  return (\n    <div style={{ fontFamily: 'sans-serif' }}>\n      <div style={{ display: 'grid', gridTemplateColumns: '1fr 80px 32px', gap: '8px', padding: '0 4px 6px', borderBottom: '0.5px solid #e5e7eb', marginBottom: '8px' }}>\n        <div style={{ fontSize: '11px', color: '#9ca3af', textTransform: 'uppercase' }}>Item description</div>\n        <div style={{ fontSize: '11px', color: '#9ca3af', textTransform: 'uppercase', textAlign: 'center' }}>Qty</div>\n        <div></div>\n      </div>\n\n      {rows.length === 0 && (\n        <div style={{ textAlign: 'center', padding: '20px 0', color: '#9ca3af', fontSize: '13px' }}>\n          No items added yet\n        </div>\n      )}\n\n      {rows.map((row, i) => (\n        <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 32px', gap: '8px', marginBottom: '6px', alignItems: 'center' }}>\n          <input\n            style={inpStyle}\n            placeholder=\"e.g. Laptops\"\n            value={row.item}\n            onChange={(e) => updateRow(i, 'item', e.target.value)}\n          />\n          <input\n            style={{ ...inpStyle, textAlign: 'center' }}\n            type=\"number\"\n            min=\"0\"\n            placeholder=\"0\"\n            value={row.qty}\n            onChange={(e) => updateRow(i, 'qty', parseInt(e.target.value) || 0)}\n          />\n          <button\n            onClick={() => removeRow(i)}\n            style={{ width: '32px', height: '32px', border: 'none', background: 'none', cursor: 'pointer', borderRadius: '6px', color: '#9ca3af', fontSize: '16px' }}\n          >×</button>\n        </div>\n      ))}\n\n      <button\n        onClick={addRow}\n        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', background: 'none', border: '0.5px dashed #d1d5db', borderRadius: '6px', padding: '7px 14px', fontSize: '13px', color: '#6b7280', cursor: 'pointer', marginTop: '6px', width: '100%' }}\n      >+ Add item</button>\n\n      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px', paddingTop: '12px', borderTop: '0.5px solid #e5e7eb', fontSize: '12px', color: '#6b7280' }}>\n        <span>Total expected: <strong style={{ color: '#111827' }}>{total}</strong> items</span>\n        <span style={{ fontSize: '11px', color: '#9ca3af' }}>Saves with collection record</span>\n      </div>\n    </div>\n  );\n}\n\nappsmith.onReady(() => {\n  ReactDOM.render(<App />, document.getElementById(\"root\"));\n});"
+  },
+  "version": 1,
+  "widgetId": "k5ianq17si",
+  "widgetName": "Custom_ExpectedAssets"
+}

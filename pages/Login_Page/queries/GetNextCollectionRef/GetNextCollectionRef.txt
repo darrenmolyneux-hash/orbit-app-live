@@ -1,0 +1,2 @@
+SELECT COALESCE(MAX(collection_id), 2499) + 1 AS next_id 
+FROM collections;

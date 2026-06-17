@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6a27f57e40e83311173efe61_b400b0ef-71b9-47da-8a01-493a15c8ff4b",
+  "id": "Asset_Page_PageInit",
+  "unpublishedCollection": {
+    "name": "PageInit",
+    "pageId": "Asset_Page",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

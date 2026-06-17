@@ -1,0 +1,5 @@
+SELECT sale_item_id
+FROM sale_items
+WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }}
+ORDER BY sale_item_id DESC
+LIMIT 1;

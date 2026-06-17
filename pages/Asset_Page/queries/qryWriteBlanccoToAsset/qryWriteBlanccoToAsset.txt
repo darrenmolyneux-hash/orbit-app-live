@@ -1,0 +1,23 @@
+UPDATE assets SET
+  cpu                = {{this.params.cpu}},
+  ram                = {{this.params.ram}},
+  hdd                = {{this.params.hdd}},
+  year               = {{this.params.year}},
+  screen_size        = {{this.params.screen_size}},
+  resolution         = {{this.params.resolution}},
+  graphics           = {{this.params.graphics}},
+  erasure_status     = {{this.params.erasure_status}},
+  erasure_standard   = {{this.params.erasure_standard}},
+  battery_health     = {{this.params.battery_health}},
+  drive_model        = {{this.params.drive_model}},
+  drive_interface    = {{this.params.drive_interface}},
+	blancco_cert_url = {{this.params.blancco_cert_url}},
+  apple_no           = CASE 
+                         WHEN UPPER(TRIM(make)) IN ('APPLE','APPLE INC') 
+                         THEN {{this.params.apple_no}} 
+                         ELSE apple_no 
+                       END,
+  blancco_last_fetch = NOW()
+ 
+WHERE UPPER(TRIM(serial_number)) = UPPER(TRIM({{this.params.serial}}))
+RETURNING asset_id, serial_number;

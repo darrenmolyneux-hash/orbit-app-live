@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 40,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "SECONDARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "1bwt17leji",
+  "leftColumn": 7,
+  "minWidth": 120,
+  "mobileBottomRow": 40,
+  "mobileLeftColumn": 3,
+  "mobileRightColumn": 19,
+  "mobileTopRow": 36,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (function() {\n    const total = Number(inp_carriage_cost.text || 0);\n    if (total <= 0) {\n      showAlert('Enter a carriage cost greater than 0', 'warning');\n      return;\n    }\n    qry_distribute_carriage.run(\n      function() {\n        const perAsset = (total / (qry_asset_summary_total.data[0]?.total_booked || 1)).toFixed(2);\n        showAlert('Carriage cost distributed: £' + perAsset + ' per asset', 'success');\n        qry_asset_breakdown_by_type.run();\n      },\n      function(error) {\n        showAlert('Failed to distribute carriage cost — ' + error.message, 'error');\n      }\n    );\n  })()\n}}",
+  "parentColumnSpace": 19.5,
+  "parentId": "wg91e07364",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 21,
+  "text": "Distribute carriage cost",
+  "topRow": 36,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "5scma3zkiq",
+  "widgetName": "btn_distribute_carriage"
+}

@@ -1,0 +1,4 @@
+SELECT *
+FROM asset_audit_log
+WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }}
+ORDER BY changed_at DESC;

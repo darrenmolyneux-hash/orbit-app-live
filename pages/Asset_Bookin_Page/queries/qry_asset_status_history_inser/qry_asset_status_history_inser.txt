@@ -1,0 +1,27 @@
+SELECT * FROM public."asset_status_history" LIMIT 10;UPDATE status_types SET sort_order = 1 WHERE status_name = 'Received';
+UPDATE status_types SET sort_order = 2 WHERE status_name = 'Awaiting Arrival';
+UPDATE status_types SET sort_order = 3 WHERE status_name = 'Check-In';
+
+UPDATE status_types SET sort_order = 4 WHERE status_name = 'Data Erasure';
+UPDATE status_types SET sort_order = 5 WHERE status_name = 'Data Erasure Failed';
+UPDATE status_types SET sort_order = 6 WHERE status_name = 'Data Shredded';
+UPDATE status_types SET sort_order = 7 WHERE status_name = 'Physical Destruction';
+
+UPDATE status_types SET sort_order = 8 WHERE status_name = 'MDM Lock';
+UPDATE status_types SET sort_order = 9 WHERE status_name = 'BIOS Lock';
+UPDATE status_types SET sort_order = 10 WHERE status_name = 'iCloud Lock';
+UPDATE status_types SET sort_order = 11 WHERE status_name = 'Quarantine';
+
+UPDATE status_types SET sort_order = 12 WHERE status_name = 'Audit';
+UPDATE status_types SET sort_order = 13 WHERE status_name = 'Repair';
+UPDATE status_types SET sort_order = 14 WHERE status_name = 'Awaiting Parts';
+UPDATE status_types SET sort_order = 15 WHERE status_name = 'Stripped for Parts';
+
+UPDATE status_types SET sort_order = 16 WHERE status_name = 'Available for Sale';
+UPDATE status_types SET sort_order = 17 WHERE status_name = 'Reserved';
+UPDATE status_types SET sort_order = 18 WHERE status_name = 'Under Offer';
+UPDATE status_types SET sort_order = 19 WHERE status_name = 'Sold';
+
+UPDATE status_types SET sort_order = 20 WHERE status_name = 'Recycled';
+UPDATE status_types SET sort_order = 21 WHERE status_name = 'Sent to Recycler';
+UPDATE status_types SET sort_order = 22 WHERE status_name = 'Final Disposition Complete';
