@@ -1,0 +1,24 @@
+SELECT
+  a.asset_id,
+  a.serial_number,
+  a.asset_ref,
+  it.item_type_name,
+  mk.make_name,
+  md.model_name,
+  a.data_bearing,
+  a.erasure_status,
+  a.overall_grade,
+  st.status_name,
+  st.category AS status_category,
+  a.sale_id,
+  a.date_added
+FROM assets a
+LEFT JOIN item_types it ON it.item_type_id = a.item_type::integer
+LEFT JOIN makes mk ON mk.make_id = a.make::integer
+LEFT JOIN models md ON md.model_id = a.model::integer
+LEFT JOIN status_types st ON st.status_id = a.status_id
+WHERE (
+  {{appsmith.URL.queryParams.collectionId ? Number(appsmith.URL.queryParams.collectionId) : 0}} = 0
+  OR a.collection_id = {{appsmith.URL.queryParams.collectionId ? Number(appsmith.URL.queryParams.collectionId) : 0}}
+)
+ORDER BY a.date_added DESC;

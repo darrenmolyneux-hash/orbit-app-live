@@ -1,0 +1,2 @@
+SELECT 'PRT-' || LPAD(CAST(COALESCE(MAX(CAST(SUBSTRING(part_ref FROM 5) AS INT)), 0) + 1 AS TEXT), 5, '0') AS next_part_ref
+FROM harvested_parts;

@@ -1,0 +1,12 @@
+SELECT
+  site_id,
+  address1,
+  address2,
+  city,
+  postcode,
+  site_contact,
+  contact_number,
+  contact_email
+FROM sites
+WHERE customer_id = {{sel_customer.selectedOptionValue}}
+ORDER BY site_id;

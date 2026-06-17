@@ -1,0 +1,11 @@
+SELECT 
+    c.collection_id,
+    c.collection_date,
+    c.customer_id,
+    cu.customer_name,
+    c.address1,
+    c.status
+FROM collections c
+LEFT JOIN customers cu
+    ON c.customer_id = cu.customer_id
+ORDER BY c.collection_date DESC;

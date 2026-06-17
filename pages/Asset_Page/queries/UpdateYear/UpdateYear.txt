@@ -1,0 +1,3 @@
+UPDATE assets
+SET YEAR = {{ YearInput.text }}
+WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }};

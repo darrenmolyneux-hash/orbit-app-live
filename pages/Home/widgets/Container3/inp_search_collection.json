@@ -1,0 +1,71 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 28,
+  "boxShadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "labelTextColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "iconAlign": "left",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "3vv9chv950",
+  "label": "Collection",
+  "labelAlignment": "left",
+  "labelPosition": "Left",
+  "labelStyle": "BOLD",
+  "labelTextColor": "{{appsmith.theme.colors.primaryColor}}",
+  "labelTextSize": "1rem",
+  "labelWidth": "12",
+  "leftColumn": 4,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onSubmit": "{{\n  (function() {\n    if (!inp_search_collection.text) return;\n\n    qry_home_search_collection.run(\n      function() {\n        if (qry_home_search_collection.data.length > 0) {\n          navigateTo(\n            'Collection_job_View',\n            { collectionId: qry_home_search_collection.data[0].collection_id },\n            'SAME_WINDOW'\n          );\n        } else {\n          showAlert(\n            'No collection found for \"' + inp_search_collection.text + '\"',\n            'warning'\n          );\n          resetWidget('inp_search_collection');\n        }\n      },\n      function() {\n        showAlert('Search failed — try again', 'error');\n      }\n    );\n  })()\n}}",
+  "originalBottomRow": 28,
+  "originalTopRow": 24,
+  "parentColumnSpace": 7,
+  "parentId": "cb1hkr9v82",
+  "parentRowSpace": 10,
+  "placeholderText": "Enter collection",
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 55,
+  "showStepArrows": false,
+  "topRow": 24,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "jo78cwam3i",
+  "widgetName": "inp_search_collection"
+}

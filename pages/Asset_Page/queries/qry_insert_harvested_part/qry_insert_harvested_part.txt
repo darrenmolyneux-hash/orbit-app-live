@@ -1,0 +1,25 @@
+INSERT INTO harvested_parts (
+  part_ref,
+  source_asset_id,
+  part_type_id,
+  spec,
+  serial_number,
+  condition_grade,
+  removed_by,
+  removed_at,
+  removal_notes,
+  disposition_due,
+  status
+) VALUES (
+  '{{qry_get_next_part_ref.data[0].next_part_ref}}',
+  {{appsmith.URL.queryParams.asset_id}},
+  {{appsmith.store.hp_part_type_id}},
+  '{{appsmith.store.hp_spec}}',
+  '{{appsmith.store.hp_serial}}',
+  '{{appsmith.store.hp_condition_grade}}',
+  '{{appsmith.store.hp_removed_by}}',
+  NOW(),
+  '{{appsmith.store.hp_notes}}',
+  CURRENT_DATE + INTERVAL '12 months',
+  'IN_STOCK'
+);

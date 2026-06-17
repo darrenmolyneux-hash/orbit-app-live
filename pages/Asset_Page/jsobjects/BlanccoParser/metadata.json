@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6a1ebe10be4ef87dd1dc50cf_ba62431f-1d12-4fda-ad4a-d58abb39d235",
+  "id": "Asset_Page_BlanccoParser",
+  "unpublishedCollection": {
+    "name": "BlanccoParser",
+    "pageId": "Asset_Page",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

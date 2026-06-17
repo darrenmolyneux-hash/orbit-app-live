@@ -1,0 +1,3 @@
+SELECT COALESCE(is_data_bearing, false) AS is_data_bearing
+FROM item_types
+WHERE item_type_id = {{ Number(sel_item_type.selectedOptionValue) }};

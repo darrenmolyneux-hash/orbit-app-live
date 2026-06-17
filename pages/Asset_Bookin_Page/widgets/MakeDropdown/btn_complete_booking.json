@@ -1,0 +1,61 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 26,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": "{{qry_booked_assets.data.length > 0}}",
+  "key": "6d9xbwpp8k",
+  "leftColumn": 23,
+  "minWidth": 120,
+  "mobileBottomRow": 23,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 19,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (function() {\n    if (qry_booked_assets.data.length === 0) {\n      showAlert('Add at least one asset first', 'warning');\n      return;\n    }\n    qry_collection_update_status.run(\n      function() {\n        showAlert('Booking complete', 'success');\n        navigateTo(\n          'Collection_job_View',\n          { collectionId: appsmith.URL.queryParams.collectionId },\n          'SAME_WINDOW'\n        );\n      },\n      function() {\n        showAlert('Failed to update status', 'error');\n      }\n    );\n  })()\n}}",
+  "parentColumnSpace": 17.625,
+  "parentId": "xgvjb501nc",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 39,
+  "text": "✓ Al Assets Recorded Confirm",
+  "topRow": 22,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "wrd4vaje5k",
+  "widgetName": "btn_complete_booking"
+}

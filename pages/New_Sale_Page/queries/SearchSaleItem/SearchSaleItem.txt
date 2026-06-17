@@ -1,0 +1,17 @@
+SELECT 
+
+  a.asset_ref,
+  a.serial_number,
+  a.sell_price,
+  a.status_id,
+  it.item_type_name,
+  mk.make_name,
+  md.model_name
+FROM assets a
+LEFT JOIN item_types it ON it.item_type_id = a.item_type::integer
+LEFT JOIN makes mk ON mk.make_id = a.make::integer
+LEFT JOIN models md ON md.model_id = a.model::integer
+WHERE 
+  a.asset_ref ILIKE {{'%' + AssetRefSearch.text + '%'}}
+  OR a.serial_number ILIKE {{'%' + AssetRefSearch.text + '%'}}
+LIMIT 10;

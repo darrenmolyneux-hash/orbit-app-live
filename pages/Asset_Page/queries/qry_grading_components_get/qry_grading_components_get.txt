@@ -1,0 +1,9 @@
+SELECT gc.id, gc.component_name, gc.display_order, acg.grade
+FROM grading_components gc
+LEFT JOIN asset_component_grades acg 
+  ON acg.component_name = gc.component_name 
+  AND acg.asset_id = {{appsmith.URL.queryParams.asset_id}}
+WHERE gc.item_type_id = (
+  SELECT item_type::integer FROM assets WHERE asset_id = {{appsmith.URL.queryParams.asset_id}}
+)
+ORDER BY gc.display_order;

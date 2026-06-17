@@ -1,0 +1,9 @@
+INSERT INTO sales (customer, sale_date, total_price, created_by, sale_ref)
+VALUES (
+    {{ SalePlatformSelect.selectedOptionValue }},
+    NOW(),
+    {{ this.params.total_price }},
+    '{{ appsmith.user.email }}',
+    generate_sale_ref()
+)
+RETURNING sale_id, sale_ref;

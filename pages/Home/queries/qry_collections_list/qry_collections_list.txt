@@ -1,0 +1,18 @@
+SELECT
+  c.collection_id,
+  c.collection_ref,
+  cu.customer_name,
+  c.job_type,
+  c.collection_date,
+  c.status,
+  c.created_by,
+  c.created_at,
+  COUNT(a.asset_id) AS asset_count
+FROM collections c
+JOIN customers cu ON cu.customer_id = c.customer_id
+LEFT JOIN assets a ON a.collection_id = c.collection_id
+GROUP BY
+  c.collection_id, c.collection_ref, cu.customer_name,
+  c.job_type, c.collection_date, c.status,
+  c.created_by, c.created_at
+ORDER BY c.created_at DESC;

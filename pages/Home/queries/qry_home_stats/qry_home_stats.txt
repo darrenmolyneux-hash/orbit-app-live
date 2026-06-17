@@ -1,0 +1,14 @@
+SELECT
+  COUNT(*) FILTER (WHERE status = 'Booked')       AS upcoming,
+  COUNT(*) FILTER (WHERE status = 'Processing')   AS processing,
+  COUNT(*) FILTER (WHERE status = 'Complete')     AS completed,
+  COUNT(*) FILTER (
+    WHERE created_at >= date_trunc('month', NOW()) - INTERVAL '1 month'
+    AND   created_at <  date_trunc('month', NOW())
+  )                                                AS last_month_collections,
+  COUNT(*) FILTER (
+    WHERE status = 'Complete'
+    AND   created_at >= date_trunc('month', NOW()) - INTERVAL '1 month'
+    AND   created_at <  date_trunc('month', NOW())
+  )                                                AS last_month_completed
+FROM collections;

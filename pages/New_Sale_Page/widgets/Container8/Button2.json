@@ -1,0 +1,64 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 22,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "isDisabled"
+    },
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "false",
+  "isLoading": false,
+  "isVisible": "{{ !!SearchResultTable.selectedRow }}\n",
+  "key": "4ra97hewlp",
+  "leftColumn": 45,
+  "minWidth": 120,
+  "mobileBottomRow": 31,
+  "mobileLeftColumn": 44,
+  "mobileRightColumn": 60,
+  "mobileTopRow": 27,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (async () => {\n    const row = SearchResultTable.selectedRow;\n\n    // 1. Determine if the asset is blocked\n    const isBlocked =\n      row.status_name !== \"Available for Sale\" ||\n      row.sold_date !== null ||\n      row.sale_id !== null;\n\n    // 2. If blocked, show override button and stop\n    if (isBlocked) {\n      storeValue(\"assetBlocked\", true);\n      showAlert(\"Blocked — asset cannot be added unless you override\", \"warning\");\n      return;\n    }\n\n    // 3. If not blocked, run normal insert flow\n    const saleItem = await InsertSaleItem.run({\n      asset_id: row.asset_id,\n      sell_price: row.sell_price\n    });\n\n    const sale_item_id = saleItem[0].sale_item_id;\n\n    await GetPlatformFee.run();\n    const pct = Number(GetPlatformFee.data?.[0]?.fee_percentage || 0);\n\n    const fee = Number(row.sell_price) * (pct / 100);\n\n    await InsertSaleFee.run({\n      sale_item_id: sale_item_id,\n      fee_type: SalePlatformSelect.selectedOptionValue + \" Platform Fee\",\n      fee_amount: fee\n    });\n\n    storeValue(\n      \"saleList\",\n      (appsmith.store.saleList || []).concat({\n        sale_item_id: sale_item_id,\n        asset_id: row.asset_id,\n        asset_ref: row.asset_ref,\n        item_type: row.item_type,\n        make: row.make,\n        model: row.model,\n        serial_number: row.serial_number,\n        sell_price: row.sell_price,\n        platform_fee: fee\n      })\n    );\n\n    showAlert(\"Item added with platform fee applied\", \"success\");\n  })()\n}}\n",
+  "parentColumnSpace": 19.5,
+  "parentId": "r5i1277ylw",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 59,
+  "text": "Add to Sale",
+  "topRow": 18,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "jknvae422v",
+  "widgetName": "Button2"
+}

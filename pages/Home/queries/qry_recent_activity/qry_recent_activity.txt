@@ -1,0 +1,27 @@
+SELECT
+  'collection' AS activity_type,
+  c.collection_id AS record_id,
+  c.job_type AS title_detail,
+  c.status AS status,
+  c.created_by AS created_by,
+  c.created_at AS created_at
+FROM collections c
+UNION ALL
+SELECT
+  'customer' AS activity_type,
+  cu.customer_id AS record_id,
+  cu.customer_name AS title_detail,
+  NULL AS status,
+  cu.created_by AS created_by,
+  cu.created_at AS created_at
+FROM customers cu
+UNION ALL
+SELECT
+  'asset' AS activity_type,
+  a.asset_id AS record_id,
+  a.asset_ref AS title_detail,
+  st.status_name AS status,
+  a.added_by AS created_by,
+  a.date_added AS created_at
+FROM assets a
+LEFT JOIN status_types st ON a.status_id = st.status_id

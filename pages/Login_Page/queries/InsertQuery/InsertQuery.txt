@@ -1,0 +1,8 @@
+INSERT INTO public."customers" (
+	"name",
+	"email",
+	"created_at")
+VALUES (
+	'{{insert_form.formData.name}}',
+	'{{insert_form.formData.email}}',
+	'{{insert_form.formData.created_at}}');

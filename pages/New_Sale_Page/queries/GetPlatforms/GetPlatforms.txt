@@ -1,0 +1,3 @@
+SELECT platform_name, fee_percentage
+FROM platform_fee
+ORDER BY platform_name;

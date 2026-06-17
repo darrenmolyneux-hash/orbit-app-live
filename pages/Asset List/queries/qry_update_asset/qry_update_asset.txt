@@ -1,0 +1,3 @@
+UPDATE assets
+SET serial_number = {{ CollectionsTable.updatedRow.serial_number }}
+WHERE asset_id = {{ CollectionsTable.updatedRow.asset_id }};

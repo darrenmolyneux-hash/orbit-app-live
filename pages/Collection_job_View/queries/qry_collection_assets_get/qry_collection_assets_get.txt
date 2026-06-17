@@ -1,0 +1,16 @@
+SELECT
+  a.asset_id,
+  a.asset_tag,
+	a.asset_ref,
+  a.item_type,
+  a.make,
+  a.model,
+  a.serial_number,
+  a.data_bearing,
+  a.grade,
+  a.date_added,
+  st.status_name AS status
+FROM assets a
+LEFT JOIN status_types st ON st.status_id = a.status_id
+WHERE a.collection_id = {{Number(appsmith.URL.queryParams.collectionId)}}
+ORDER BY a.date_added DESC;

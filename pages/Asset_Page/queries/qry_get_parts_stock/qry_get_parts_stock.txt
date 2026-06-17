@@ -1,0 +1,29 @@
+SELECT
+  hp.id,
+  hp.part_ref,
+  pt.name AS part_type,
+  hp.spec,
+  hp.serial_number,
+  hp.condition_grade,
+  hp.status,
+  hp.removed_at::date AS in_stock_since,
+  hp.disposition_due,
+  a.asset_ref AS source_asset_ref,
+  CASE 
+    WHEN hp.disposition_due < CURRENT_DATE THEN true 
+    ELSE false 
+  END AS is_overdue
+FROM harvested_parts hp
+LEFT JOIN part_types pt ON pt.part_type_id = hp.part_type_id
+LEFT JOIN assets a ON a.asset_id = hp.source_asset_id
+WHERE hp.status = 'IN_STOCK'
+AND hp.source_asset_id != {{appsmith.URL.queryParams.asset_id}}
+AND (
+  '{{appsmith.store.stock_type_filter}}' = '' 
+  OR pt.name = '{{appsmith.store.stock_type_filter}}'
+)
+AND (
+  '{{appsmith.store.stock_grade_filter}}' = '' 
+  OR POSITION(hp.condition_grade IN '{{appsmith.store.stock_grade_filter}}') > 0
+)
+ORDER BY hp.removed_at ASC;

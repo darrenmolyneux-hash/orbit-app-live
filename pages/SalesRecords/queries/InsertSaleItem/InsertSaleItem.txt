@@ -1,0 +1,6 @@
+INSERT INTO sale_items (sale_id, asset_id, sell_price)
+VALUES (
+    {{ this.params.sale_id }},
+    {{ this.params.asset_id }},
+    {{ this.params.sell_price }}
+);

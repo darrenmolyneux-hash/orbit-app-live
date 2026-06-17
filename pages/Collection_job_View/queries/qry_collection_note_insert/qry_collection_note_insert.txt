@@ -1,0 +1,15 @@
+INSERT INTO job_notes (
+  collection_id,
+  note_text,
+  note_type,
+  is_system,
+  created_by,
+  created_at
+) VALUES (
+  {{Number(appsmith.URL.queryParams.collectionId)}},
+  {{appsmith.store.noteText}},
+  {{appsmith.store.noteType || 'general'}},
+  false,
+  {{appsmith.user.name}},
+  NOW()
+);

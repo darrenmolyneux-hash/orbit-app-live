@@ -1,0 +1,3 @@
+UPDATE assets
+SET cpu = {{ CPUInput.text }}
+WHERE asset_id = {{ appsmith.URL.queryParams.asset_id }};

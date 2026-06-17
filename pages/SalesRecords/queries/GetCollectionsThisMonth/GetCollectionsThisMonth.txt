@@ -1,0 +1,3 @@
+SELECT COUNT(*) AS total
+FROM collections
+WHERE DATE_TRUNC('month', createddate) = DATE_TRUNC('month', CURRENT_DATE);

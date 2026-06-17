@@ -1,0 +1,54 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 22,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "18dgxs7otw",
+  "leftColumn": 47,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\n  (function() {\n    if (!inp_new_model_name.text || !inp_new_model_weight.text) {\n      showAlert('Please enter both model name and weight', 'warning');\n      return;\n    }\n    qry_model_insert.run(\n      function() {\n        const newModelId = qry_model_insert.data[0]?.model_id;\n        const newModelName = qry_model_insert.data[0]?.model_name;\n        qry_models_list.run(function() {\n          storeValue('autoSelectModelId', newModelId);\n          storeValue('autoSelectModelName', newModelName);\n        });\n        closeModal('Modal1');\n        showAlert('Model added successfully', 'success');\n        resetWidget('inp_new_model_name', true);\n        resetWidget('inp_new_model_weight', true);\n      },\n      function(error) {\n        showAlert('Failed to add model — ' + error.message, 'error');\n      }\n    );\n  })()\n}}",
+  "parentId": "0wxo7w24jv",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "Confirm",
+  "topRow": 18,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "z73l4b4nui",
+  "widgetName": "btn_confirm_new_model"
+}

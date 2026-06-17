@@ -1,0 +1,27 @@
+INSERT INTO assets (
+  collection_id,
+  customer,
+  item_type,
+  make,
+  model,
+  serial_number,
+  asset_ref,
+  data_bearing,
+  added_by,
+  date_added,
+  status_id
+)
+SELECT
+  {{appsmith.URL.queryParams.collectionId}},
+  (SELECT cu.customer_name FROM customers cu
+   JOIN collections c ON c.customer_id = cu.customer_id
+   WHERE c.collection_id = {{appsmith.URL.queryParams.collectionId}}),
+  '{{appsmith.store.pendingItemType}}',
+  '{{appsmith.store.pendingMake}}',
+  '{{appsmith.store.pendingModel}}',
+  '{{appsmith.store.pendingSerial}}',
+  '{{qry_next_asset_ref.data[0].asset_ref}}',
+ {{appsmith.store.pendingDataBearing}},
+  '{{appsmith.user.name}}',
+  NOW(),
+  (SELECT status_id FROM status_types WHERE status_name = 'Received');

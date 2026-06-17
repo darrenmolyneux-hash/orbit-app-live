@@ -1,0 +1,73 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": false,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 14,
+  "boxShadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+  "defaultText": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "labelTextColor"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSubmit"
+    }
+  ],
+  "errorMessage": "Ref Not Found",
+  "iconAlign": "left",
+  "iconName": "barcode",
+  "inputType": "TEXT",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "3vv9chv950",
+  "label": "Barcode",
+  "labelAlignment": "left",
+  "labelPosition": "Left",
+  "labelStyle": "BOLD",
+  "labelTextColor": "{{appsmith.theme.colors.primaryColor}}",
+  "labelTextSize": "1rem",
+  "labelWidth": "12",
+  "leftColumn": 4,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onSubmit": "{{\n  (function() {\n    if (!inp_search_barcode.text) return;\n    qry_home_search_barcode.run(\n      function() {\n        if (qry_home_search_barcode.data.length > 0) {\n          navigateTo(\n            'Asset_Page',\n            { asset_id: qry_home_search_barcode.data[0].asset_id },\n            'SAME_WINDOW'\n          );\n        } else {\n          showAlert(\n            'No asset found for barcode \"' + inp_search_barcode.text + '\"',\n            'warning'\n          );\n          resetWidget('inp_search_barcode');\n        }\n      },\n      function() {\n        showAlert('Search failed — try again', 'error');\n      }\n    );\n  })()\n}}",
+  "originalBottomRow": 14,
+  "originalTopRow": 10,
+  "parentColumnSpace": 7,
+  "parentId": "cb1hkr9v82",
+  "parentRowSpace": 10,
+  "placeholderText": "Enter barcode",
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 55,
+  "showStepArrows": false,
+  "topRow": 10,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "bi853crqe8",
+  "widgetName": "inp_search_barcode"
+}

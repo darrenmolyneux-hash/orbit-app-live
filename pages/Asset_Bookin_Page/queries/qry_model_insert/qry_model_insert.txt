@@ -1,0 +1,7 @@
+INSERT INTO models (model_name, make_id, weight)
+VALUES (
+  {{ inp_new_model_name.text }},
+  {{ sel_make.selectedOptionValue }},
+  {{ Number(inp_new_model_weight.text) }}
+)
+RETURNING model_id, model_name, weight;

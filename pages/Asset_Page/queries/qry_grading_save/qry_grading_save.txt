@@ -1,0 +1,40 @@
+INSERT INTO asset_grading_answers (
+  asset_id,
+  cosmetics_option_id,
+  lcd_option_id,
+  functionality_option_id,
+  missing_option_id,
+  bios_lock,
+  mdm_lock,
+  efi_lock,
+  icloud_lock,
+  intune_lock,
+  calculated_grade,
+  notes
+)
+VALUES (
+  {{appsmith.URL.queryParams.asset_id}}::integer,
+  {{Custom_Grading.model.selections[1] || null}},
+  {{Custom_Grading.model.selections[2] || null}},
+  {{Custom_Grading.model.selections[3] || null}},
+  {{Custom_Grading.model.selections[4] || null}},
+  {{Custom_Grading.model.locks['BIOS Lock'] || false}},
+  {{Custom_Grading.model.locks['MDM Lock'] || false}},
+  {{Custom_Grading.model.locks['EFI Lock'] || false}},
+  {{Custom_Grading.model.locks['iCloud Lock'] || false}},
+  {{Custom_Grading.model.locks['inTune'] || false}},
+  {{Custom_Grading.model.overallGrade || null}},
+  {{Custom_Grading.model.notes || ''}}
+)
+ON CONFLICT (asset_id) DO UPDATE SET
+  cosmetics_option_id = EXCLUDED.cosmetics_option_id,
+  lcd_option_id = EXCLUDED.lcd_option_id,
+  functionality_option_id = EXCLUDED.functionality_option_id,
+  missing_option_id = EXCLUDED.missing_option_id,
+  bios_lock = EXCLUDED.bios_lock,
+  mdm_lock = EXCLUDED.mdm_lock,
+  efi_lock = EXCLUDED.efi_lock,
+  icloud_lock = EXCLUDED.icloud_lock,
+  intune_lock = EXCLUDED.intune_lock,
+  calculated_grade = EXCLUDED.calculated_grade,
+  notes = EXCLUDED.notes;

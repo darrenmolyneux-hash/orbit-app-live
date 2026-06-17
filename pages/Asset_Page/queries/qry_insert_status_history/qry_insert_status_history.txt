@@ -1,0 +1,6 @@
+INSERT INTO asset_status_history (asset_id, status_id, changed_by)
+VALUES (
+  {{qry_GetAssetById.data[0].asset_id}},
+  {{Custom5.model.selectedStatusId}},
+  '{{appsmith.user.email}}'
+);

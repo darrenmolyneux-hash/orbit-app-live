@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "6a1ebe10be4ef87dd1dc50cf_985968f1-6737-4606-af4c-b1fa5a24218e",
+  "id": "SaleDetails_SaleHelpers",
+  "unpublishedCollection": {
+    "name": "SaleHelpers",
+    "pageId": "SaleDetails",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

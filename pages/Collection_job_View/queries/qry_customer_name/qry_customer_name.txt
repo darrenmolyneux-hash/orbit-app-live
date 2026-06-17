@@ -1,0 +1,3 @@
+SELECT customer_id, customername
+FROM customers
+WHERE customer_id = {{ qry_collection_get.data[0]?.customerid }}

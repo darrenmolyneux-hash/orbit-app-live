@@ -1,0 +1,3 @@
+UPDATE assets
+SET carriage_cost_allocated = ROUND({{Number(inp_carriage_cost.text || 0)}} / (SELECT COUNT(*) FROM assets WHERE collection_id = {{Number(appsmith.URL.queryParams.collectionId)}}), 2)
+WHERE collection_id = {{Number(appsmith.URL.queryParams.collectionId)}};

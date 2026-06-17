@@ -1,0 +1,3 @@
+UPDATE assets
+SET sell_price = NULLIF({{ SearchResultTable.updatedRow.sell_price }}, '')::numeric
+WHERE asset_id = {{ SearchResultTable.updatedRow.asset_id }};

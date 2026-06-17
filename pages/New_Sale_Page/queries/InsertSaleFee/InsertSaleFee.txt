@@ -1,0 +1,6 @@
+INSERT INTO sales_fee (sale_item_id, fee_type, fee_amount)
+VALUES (
+    {{ this.params.sale_item_id }},
+    {{ this.params.fee_type }},
+    {{ this.params.fee_amount }}
+);

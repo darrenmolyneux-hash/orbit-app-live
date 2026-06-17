@@ -1,0 +1,3 @@
+UPDATE assets
+SET asset_ref = {{ this.params.asset_ref }}
+WHERE asset_id = {{ this.params.asset_id }};

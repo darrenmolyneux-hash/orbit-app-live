@@ -1,0 +1,4 @@
+SELECT model_id, model_name
+FROM models
+WHERE make_id = {{ Number(sel_make.selectedOptionValue) }}
+ORDER BY model_name;

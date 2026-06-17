@@ -1,0 +1,4 @@
+SELECT status_id, status_name, category, sort_order
+FROM status_types
+WHERE is_active = true
+ORDER BY sort_order;

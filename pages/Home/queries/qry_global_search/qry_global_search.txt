@@ -1,0 +1,45 @@
+SELECT 
+  'asset' AS result_type,
+  asset_ref AS ref,
+  COALESCE(make || ' ' || model, 'Unknown') AS detail,
+  asset_id::text AS record_id
+FROM assets
+WHERE (
+    asset_ref        ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR serial_number ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR make          ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR model         ILIKE '%' || {{inp_search.text}}::text || '%'
+  )
+
+UNION ALL
+
+SELECT 
+  'collection' AS result_type,
+  'COL-' || c.collection_id::text AS ref,
+  COALESCE(cu.customer_name, 'Unknown customer') AS detail,
+  c.collection_id::text AS record_id
+FROM collections c
+LEFT JOIN customers cu ON cu.customer_id = c.customer_id
+WHERE (
+    cu.customer_name         ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR c.postcode            ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR c.address1            ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR c.collection_id::text ILIKE '%' || {{inp_search.text}}::text || '%'
+  )
+
+UNION ALL
+
+SELECT 
+  'customer' AS result_type,
+  customer_name AS ref,
+  COALESCE(contact_name, '') AS detail,
+  customer_id::text AS record_id
+FROM customers
+WHERE (
+    customer_name ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR contact_name ILIKE '%' || {{inp_search.text}}::text || '%'
+    OR email        ILIKE '%' || {{inp_search.text}}::text || '%'
+  )
+
+ORDER BY result_type, ref
+LIMIT 15
